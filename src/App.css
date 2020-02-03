@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+/**************** General CSS *********************/
+body {
+  background-color: #27272B;
+  color: #F2F0EF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.right {
+  float: right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left {
+  float: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/**************** NavBar CSS *********************/
+.NavBar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #27272B;
+  align-items: center; /* Makes sure the item is in center of the div (in terms of height) */
+  height: 5vh;
+  width: 100vw;
+
+  /* to make the Nav Bar stay on the top of screen */
+  position: -webkit-sticky; /* safari */
+  position: sticky;
+  top: 0;
+
+  border-style: solid;
 }
 
-.App-link {
-  color: #61dafb;
+.NavBar p{
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+
+  font-size: 3vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/**************** Main Page CSS *********************/
+.MainPage {
+  height: 100vh;
+  width: 100vw;
+}
+
+
+/**************** Source Div CSS *********************/
+.SourceDiv {
+  border-style: solid;
+  border-color: green;
+
+  /*For Side Scrolling*/
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.SourceDivTwo {
+  /*This is to prevent a bug with divs 
+  appearing at different height*/
+  display: inline-flex; 
+}
+/**************** News Div CSS *********************/
+.NewsDiv {
+  border-style: solid;
+  border-color: orange;
+
+
+  height: 40vh;
+  width: 25vw;
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+
+  /*For Side Scrolling*/
+  display: inline-block;
+  white-space: normal;
+  overflow-x: scroll;
+
+}
+
+.NewsDiv .Title{
+  text-align: center;
+  font-size: 3vw;
+  margin-top: 1vh;
+  margin-bottom: 0px;
+}
+
+.NewsDiv .Author{
+  font-size: 1.1vw;
+  margin-top: 0px;
+}
+
+.NewsDiv .Content{
+  text-indent: 3vw;
+  font-size: 1.5vw;
+  padding: 1vh 1vw;
 }
