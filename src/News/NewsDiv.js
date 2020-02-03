@@ -1,10 +1,11 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 const NewsDiv = (props) => {
   return (
     <div className="NewsDiv ">
-      <p> Testing Main Div for Each News</p>
+      <h1 className="Title"> {props.news.title} </h1>
+      <p className="Author right"> {`By: ${props.news.author}`} </p>
+      <p className="Content"> {props.news.content}</p>
     </div>
   );
 }

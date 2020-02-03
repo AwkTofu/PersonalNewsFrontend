@@ -1,18 +1,28 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import NewsDiv from './NewsDiv.js';
 
+const CreateNewsDivs = (allNews, tempTitle = "N/A") => {
+	if (allNews)
+	{
+		//console.log(`${tempTitle}: `, allNews)
+		return allNews.map((news) => {
+			return <NewsDiv key={news.id} news={news}/>
+		})
+	}
+	else
+	{ //Nothing to render
+		//console.log("Nothing to render", tempTitle);
+		return (<div className="Error" style={{height: "20vh"}}>{`Nothing to render for ${tempTitle}`}</div>)
+	}
+
+}
+
 const SourceDiv = (props) => {
-	let amtOfNews = 7;
   return (
     <div className={`${props.srcName} SourceDiv`}>
-      <NewsDiv />
-      <NewsDiv />
-      <NewsDiv />
-      <NewsDiv />
-      <NewsDiv />
-      <NewsDiv />
-      <NewsDiv />
+    	<div className="SourceDivTwo">
+      		{CreateNewsDivs(props.news, props.srcName)}
+      	</div>
     </div>
   );
 }

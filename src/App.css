@@ -38,10 +38,8 @@ body {
 
 /**************** Main Page CSS *********************/
 .MainPage {
-  border-style: solid;
   height: 100vh;
   width: 100vw;
-
 }
 
 
@@ -54,14 +52,44 @@ body {
   overflow: auto;
   white-space: nowrap;
 }
+
+.SourceDivTwo {
+  /*This is to prevent a bug with divs 
+  appearing at different height*/
+  display: inline-flex; 
+}
 /**************** News Div CSS *********************/
 .NewsDiv {
   border-style: solid;
   border-color: orange;
+
+
   height: 40vh;
-  width: 30vw;
-  margin: 1vh;
+  width: 25vw;
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
 
   /*For Side Scrolling*/
   display: inline-block;
+  white-space: normal;
+  overflow-x: scroll;
+
+}
+
+.NewsDiv .Title{
+  text-align: center;
+  font-size: 3vw;
+  margin-top: 1vh;
+  margin-bottom: 0px;
+}
+
+.NewsDiv .Author{
+  font-size: 1.1vw;
+  margin-top: 0px;
+}
+
+.NewsDiv .Content{
+  text-indent: 3vw;
+  font-size: 1.5vw;
+  padding: 1vh 1vw;
 }

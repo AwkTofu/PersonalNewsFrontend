@@ -3,13 +3,12 @@ import {connect} from 'react-redux';
 import SourceDiv from './SourceDiv.js'
 
 const MainPage = (props) => {
-  console.log(props.fakeData)
   return (
     <div className="MainPage">
       <p> New York Time</p>
-      <SourceDiv srcName="NYTimes"/>
+      <SourceDiv srcName="NYTimes" news={props.fakeData}/>
       <p> Twitter (Maybe)</p>
-      <SourceDiv srcName="NYTimes"/>
+      <SourceDiv srcName="Twitter"/>
     </div>
   );
 }
