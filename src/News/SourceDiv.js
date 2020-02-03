@@ -3,10 +3,14 @@ import {connect} from 'react-redux';
 import NewsDiv from './NewsDiv.js';
 
 const SourceDiv = (props) => {
+	let amtOfNews = 7;
   return (
     <div className={`${props.srcName} SourceDiv`}>
-      <p> Testing Source Div for {props.srcName}</p>
-
+      <NewsDiv />
+      <NewsDiv />
+      <NewsDiv />
+      <NewsDiv />
+      <NewsDiv />
       <NewsDiv />
       <NewsDiv />
     </div>

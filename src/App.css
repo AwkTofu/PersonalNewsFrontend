@@ -18,7 +18,7 @@ body {
   background-color: #27272B;
   align-items: center; /* Makes sure the item is in center of the div (in terms of height) */
   height: 5vh;
-  width: 100%;
+  width: 100vw;
 
   /* to make the Nav Bar stay on the top of screen */
   position: -webkit-sticky; /* safari */
@@ -39,7 +39,9 @@ body {
 /**************** Main Page CSS *********************/
 .MainPage {
   border-style: solid;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+
 }
 
 
@@ -48,14 +50,18 @@ body {
   border-style: solid;
   border-color: green;
 
-  overflow-y: scroll;
+  /*For Side Scrolling*/
+  overflow: auto;
+  white-space: nowrap;
 }
 /**************** News Div CSS *********************/
 .NewsDiv {
-  margin: 1vh;
   border-style: solid;
   border-color: orange;
-
-  width: 30vh;
   height: 40vh;
+  width: 30vw;
+  margin: 1vh;
+
+  /*For Side Scrolling*/
+  display: inline-block;
 }

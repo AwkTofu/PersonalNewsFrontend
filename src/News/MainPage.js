@@ -6,7 +6,9 @@ const MainPage = (props) => {
   console.log(props.fakeData)
   return (
     <div className="MainPage">
-      <p> Testing Main Page</p>
+      <p> New York Time</p>
+      <SourceDiv srcName="NYTimes"/>
+      <p> Twitter (Maybe)</p>
       <SourceDiv srcName="NYTimes"/>
     </div>
   );

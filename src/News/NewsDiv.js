@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 const NewsDiv = (props) => {
   return (
-    <div className="NewsDiv left">
+    <div className="NewsDiv ">
       <p> Testing Main Div for Each News</p>
     </div>
   );
