@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import MainDiv from './MainDiv.js'
+import SourceDiv from './SourceDiv.js'
 
 const MainPage = (props) => {
   console.log(props.fakeData)
   return (
     <div className="MainPage">
       <p> Testing Main Page</p>
-      <MainDiv srcName="NYTimes"/>
+      <SourceDiv srcName="NYTimes"/>
     </div>
   );
 }

@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+/**************** General CSS *********************/
+body {
+  background-color: #27272B;
+  color: #F2F0EF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.right {
+  float: right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left {
+  float: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/**************** NavBar CSS *********************/
+.NavBar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #27272B;
+  align-items: center; /* Makes sure the item is in center of the div (in terms of height) */
+  height: 5vh;
+  width: 100%;
+
+  /* to make the Nav Bar stay on the top of screen */
+  position: -webkit-sticky; /* safari */
+  position: sticky;
+  top: 0;
+
+  border-style: solid;
 }
 
-.App-link {
-  color: #61dafb;
+.NavBar p{
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+
+  font-size: 3vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/**************** Main Page CSS *********************/
+.MainPage {
+  border-style: solid;
+  width: 100%;
+}
+
+
+/**************** Source Div CSS *********************/
+.SourceDiv {
+  border-style: solid;
+  border-color: green;
+
+  overflow-y: scroll;
+}
+/**************** News Div CSS *********************/
+.NewsDiv {
+  margin: 1vh;
+  border-style: solid;
+  border-color: orange;
+
+  width: 30vh;
+  height: 40vh;
 }
