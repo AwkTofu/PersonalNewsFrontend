@@ -1,7 +1,26 @@
+/* Color coding for the website
+
+Light Shades: #F3F5F2;
+  Use this color as the background for your dark-on-light designs, or the text color of an inverted design.
+Light Accend: #D0A67C;
+  Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette.
+Main Brand Color: #EE3F3F;
+  This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity.
+Dark Accent: #9E7373;
+  Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
+Dark Shades: #2B3130;
+  Use as the text color for dark-on-light designs, or as the background for inverted designs.
+
+
+
+*/
+
+
 /**************** General CSS *********************/
 body {
-  background-color: #27272B;
-  color: #F2F0EF;
+  background-color: #2B3130;
+  color: #F3F5F2;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .right {
@@ -15,7 +34,7 @@ body {
 /**************** NavBar CSS *********************/
 .NavBar {
   display: flex;
-  background-color: #27272B;
+  background-color: #0f0f0f;
   align-items: center; /* Makes sure the item is in center of the div (in terms of height) */
   height: 5vh;
   width: 100vw;
@@ -24,16 +43,14 @@ body {
   position: -webkit-sticky; /* safari */
   position: sticky;
   top: 0;
-
-  border-style: solid;
 }
 
 .NavBar p{
-  color: #fff;
+  color: #F3F5F2;
   text-align: center;
   margin: 0 auto;
 
-  font-size: 3vh;
+  font-size: 2vh;
 }
 
 /**************** Main Page CSS *********************/

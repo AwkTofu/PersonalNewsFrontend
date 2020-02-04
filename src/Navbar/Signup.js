@@ -3,8 +3,8 @@ import React from 'react';
 const Signup = (props) => {
 
   return (
-    <div className="NavBar">
-      <p> Testing Nav Bar </p>
+    <div className="Signup">
+      <p> Signup Form </p>
     </div>
   );
 }

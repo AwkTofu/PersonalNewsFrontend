@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from "./Navbar/NavBar.js";
 import MainPage from "./News/MainPage.js";
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 function App() {
   return (
@@ -12,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
