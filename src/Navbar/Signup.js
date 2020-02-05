@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {setUser} from '../Redux/actions.js';
+import {setUserToken} from '../Redux/actions.js';
 import "../CSS/Signup.css"
 
 const GetErrorsInForm = (formData, setFormData) => {
@@ -94,16 +94,25 @@ const Signup = (props) => {
 			})
 			.then(r => r.json())
 			.then(respond => {
-				props.setUser(respond)
+				props.setUserToken(respond.user, respond.token)
+				localStorage.setItem('token', respond.token)
 				props.history.push("/")
 			})
 		}
 	}
-	
+
+	let handleLoginClick = () => {
+		props.history.push("/login")
+	}
+
 	//********** JSX Return **********
   return (
     <div className="Signup">
-      <p> Signup Form </p>
+      <p className="title"> Signup Form </p>
+      <p className="login_link"
+      	onClick={handleLoginClick}>
+      	Already registered? Click to login.
+      </p>
       	<div className={`signup_div ${formData.errors.name ? "error_div" : ''}`}>
       		<input type="text" 
 	      		placeholder="Name"
@@ -140,7 +149,7 @@ const Signup = (props) => {
 	      		name="password" 
 	      		onChange={handleChange} 
 	      		value={formData.password} />
-      		<img src="/logo512.png" className="showpass_icon right" onClick={handlePasswordShow}/>
+      		<img src="/logo512.png" className="showpass_icon right" alt="showpass_icon" onClick={handlePasswordShow}/>
       	</div>
       	{formData.errors.password ? (<p className="form_error">{formData.errors.password}</p>) : null}
       	
@@ -160,11 +169,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => {
-	const settingUser = (user) => {
-		dispatch(setUser(user));
+	const settingUser = (user, token) => {
+		dispatch(setUserToken(user, token));
 	}
 	return {
-		setUser: settingUser
+		setUserToken: settingUser
 	}
 }
 

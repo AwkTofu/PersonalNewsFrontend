@@ -39,7 +39,8 @@ const fakeData = [
 const initialState = {
 	user: null,
 	token: null,
-	fakeTwitterInfo: [...fakeData]
+	fakeTwitterInfo: [...fakeData],
+	login: false,
 }
 
 const reducer = (existingState = initialState, action) => {
@@ -47,12 +48,21 @@ const reducer = (existingState = initialState, action) => {
 		case "SET_USER":
 			return {
 				...existingState,
-				user: action.payload
+				user: action.payload,
+				login: true,
+			}
+		case "SET_USER_TOKEN":
+			return {
+				...existingState,
+				user: action.user,
+				token: action.token,
+				login: true,
 			}
 		case "LOGOUT":
 			return {
 				...existingState,
-				user: null
+				user: null,
+				login: false,
 			}
 		default:
 			return existingState

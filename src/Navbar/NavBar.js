@@ -5,11 +5,12 @@ import {connect} from 'react-redux';
 //************** Event Handlers **************
 let handleClickLogout = (props) => {
 	props.logout()
+	localStorage.removeItem("token");
 	console.log("user logged out")
 }
 
 let handleLoginClick = (history) => {
-	history.push("/signup")
+	history.push("/login")
 }
 
 let handleHomeClick = (history) => {
@@ -19,9 +20,9 @@ let handleHomeClick = (history) => {
 //************** Helper Functions **************
 let showProfile = (props) => {
 	return (
-		<div className="Profile">
+		<div className="profile">
 			Welcome, {props.user.name}
-			<p className="logout" onClick={() => handleClickLogout(props)}> logout </p>
+			<h4 className="logout" onClick={() => handleClickLogout(props)}> logout </h4>
 		</div>
 	)
 }
@@ -29,16 +30,17 @@ let showProfile = (props) => {
 let login_signup = (props) => {
 	return (
 		<div className="login right" onClick={() => handleLoginClick(props.history)}>
-			Click here to login/signup
+			SIGN IN
 		</div>
 	)
 }
 
 const NavBar = (props) => {
 	console.log("User:", props.user)
+	console.log("Token:", props.token)
   return (
     <div className="NavBar">
-      <p onClick={() => handleHomeClick(props.history)}> Testing Nav Bar </p>
+      <p className="home_button" onClick={() => handleHomeClick(props.history)}> Testing Nav Bar </p>
       {props.user 
       	? showProfile(props)
       	: login_signup(props)}
@@ -48,7 +50,8 @@ const NavBar = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    token: state.token,
   }
 }
 
