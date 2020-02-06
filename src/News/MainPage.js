@@ -1,17 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import SourceDiv from './SourceDiv.js'
+import Footer from "../footer.js";
 
 const MainPage = (props) => {
-  let sourceCSSdark = "SourceDivDark"
-  let sourceCSSlight = "SourceDivLight"
-
   return (
     <div className="MainPage">
-      <p> New York Time</p>
-      <SourceDiv srcName="NYTimes" news={props.NYTimes}/>
-      <p> Twitter (Maybe)</p>
-      <SourceDiv srcName="Twitter"/>
+      <h1 className="divTitle"> New York Time</h1>
+      <SourceDiv srcName="NYTimes" news={props.NYTimes} theme="dark"/>
+      <h1 className="divTitle">  Twitter (Maybe)</h1>
+      <SourceDiv srcName="Twitter" news={props.NYTimes} theme="dark"/>
+      <Footer />
     </div>
   );
 }

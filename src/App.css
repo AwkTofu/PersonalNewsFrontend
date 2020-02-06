@@ -21,6 +21,8 @@ body {
   background-color: #2B3130;
   color: #F3F5F2;
   font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
 }
 
 .right {
@@ -46,14 +48,14 @@ body {
 }
 
 ::-webkit-scrollbar {
-  background: #CCF6ED;
+  background: #2B3130;
   border-radius: 4px;
   height: 8px;
   width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #21BB9A;
+  background: #D0A67C;
   border-radius: 4px;
 }
 
@@ -102,40 +104,39 @@ body {
 
 /**************** Main Page CSS *********************/
 .MainPage {
-  height: 100vh;
+  height: 104vh;
   width: 100vw;
 }
 
 
 /**************** Source Div CSS *********************/
-.SourceDivDark {
+.SourceDiv {
   /*For Side Scrolling*/
   overflow: auto;
   white-space: nowrap;
 }
 
-.SourceDivDarkInner {
-  /*This is to prevent a bug with divs 
-  appearing at different height*/
-  display: inline-flex; 
-}
-
-.SourceDivLight {
-  /*For Side Scrolling*/
-  overflow: auto;
-  white-space: nowrap;
-}
-
-.SourceDivLightInner {
+.SourceDivInner {
   /*This is to prevent a bug with divs 
   appearing at different height*/
   display: inline-flex; 
 }
 /**************** News Div CSS *********************/
-.NewsDiv {
-  border-style: solid;
-  border-color: orange;
+.darkDiv {
+  background-color: #000;
+  color: #F3F5F2;
+}
 
+.dark {
+  background-color: #2B3130;
+}
+
+.divTitle {
+  text-align: center;
+}
+
+.NewsDiv {
+  border-radius: 1em;
 
   height: 40vh;
   width: 25vw;
@@ -145,8 +146,7 @@ body {
   /*For Side Scrolling*/
   display: inline-block;
   white-space: normal;
-  overflow-y: scroll;
-
+  overflow: hidden;
 }
 
 .NewsDiv .Title{
@@ -156,7 +156,6 @@ body {
   margin-bottom: 0px;
 
   font-weight: bold;
-  color: #9E7373;
 }
 
 .NewsDiv .Author{
@@ -168,9 +167,21 @@ body {
 }
 
 .NewsDiv .Content{
-  text-indent: 3vw;
-  font-size: 1.5vw;
+  text-indent: 1vw;
+  font-size: 1.4vw;
   padding: 1vh 1vw;
 
   font-weight: normal;
+  padding-right: 0;
+}
+
+
+/**************** Footer CSS *********************/
+.footer {
+  background-color: #000;
+  font-size: 2vh;
+
+  height: 20vh;
+  padding-top: 1vh;
+  
 }

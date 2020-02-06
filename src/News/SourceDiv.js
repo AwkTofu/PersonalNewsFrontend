@@ -1,12 +1,12 @@
 import React from 'react';
 import NewsDiv from './NewsDiv.js';
 
-const CreateNewsDivs = (allNews, tempTitle = "N/A") => {
+const CreateNewsDivs = (allNews, tempTitle = "N/A", theme) => {
 	if (allNews)
 	{
 		//console.log(`${tempTitle}: `, allNews)
 		return allNews.map((news) => {
-			return <NewsDiv key={news.title} news={news}/>
+			return <NewsDiv key={news.title} news={news} theme={`${theme}Div`}/>
 		})
 	}
 	else
@@ -19,9 +19,9 @@ const CreateNewsDivs = (allNews, tempTitle = "N/A") => {
 
 const SourceDiv = (props) => {
   return (
-    <div className={`${props.srcName} SourceDivDark`}>
-    	<div className="SourceDivDarkInner">
-      		{CreateNewsDivs(props.news, props.srcName)}
+    <div className={`${props.srcName} SourceDiv ${props.theme}`}>
+    	<div className="SourceDivInner">
+      		{CreateNewsDivs(props.news, props.srcName, props.theme)}
       	</div>
     </div>
   );
