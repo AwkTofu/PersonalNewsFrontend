@@ -18,3 +18,10 @@ export const logout = () => {
 		type: "LOGOUT",
 	}
 }
+
+export const resetNYTimesContent = (articles) => {
+	return {
+		type: "NYTimes_Reset",
+		articles: articles,
+	}
+}

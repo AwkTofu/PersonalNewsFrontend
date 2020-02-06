@@ -40,6 +40,7 @@ const initialState = {
 	user: null,
 	token: null,
 	fakeTwitterInfo: [...fakeData],
+	NYTimesContent: [{id: 0, title: "No Info", author:"DNE", url:"", content:"Error, NY Times API not loaded"}],
 	login: false,
 }
 
@@ -63,6 +64,11 @@ const reducer = (existingState = initialState, action) => {
 				...existingState,
 				user: null,
 				login: false,
+			}
+		case "NYTimes_Reset":
+			return {
+				...existingState,
+				NYTimesContent: [...action.articles]
 			}
 		default:
 			return existingState

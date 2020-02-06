@@ -6,7 +6,7 @@ const CreateNewsDivs = (allNews, tempTitle = "N/A") => {
 	{
 		//console.log(`${tempTitle}: `, allNews)
 		return allNews.map((news) => {
-			return <NewsDiv key={news.id} news={news}/>
+			return <NewsDiv key={news.title} news={news}/>
 		})
 	}
 	else
@@ -19,8 +19,8 @@ const CreateNewsDivs = (allNews, tempTitle = "N/A") => {
 
 const SourceDiv = (props) => {
   return (
-    <div className={`${props.srcName} SourceDiv`}>
-    	<div className="SourceDivTwo">
+    <div className={`${props.srcName} SourceDivDark`}>
+    	<div className="SourceDivDarkInner">
       		{CreateNewsDivs(props.news, props.srcName)}
       	</div>
     </div>

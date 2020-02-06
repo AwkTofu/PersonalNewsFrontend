@@ -45,6 +45,18 @@ body {
   cursor: pointer;
 }
 
+::-webkit-scrollbar {
+  background: #CCF6ED;
+  border-radius: 4px;
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #21BB9A;
+  border-radius: 4px;
+}
+
 /**************** NavBar CSS *********************/
 .NavBar {
   display: flex;
@@ -96,16 +108,25 @@ body {
 
 
 /**************** Source Div CSS *********************/
-.SourceDiv {
-  border-style: solid;
-  border-color: green;
-
+.SourceDivDark {
   /*For Side Scrolling*/
   overflow: auto;
   white-space: nowrap;
 }
 
-.SourceDivTwo {
+.SourceDivDarkInner {
+  /*This is to prevent a bug with divs 
+  appearing at different height*/
+  display: inline-flex; 
+}
+
+.SourceDivLight {
+  /*For Side Scrolling*/
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.SourceDivLightInner {
   /*This is to prevent a bug with divs 
   appearing at different height*/
   display: inline-flex; 
@@ -124,24 +145,32 @@ body {
   /*For Side Scrolling*/
   display: inline-block;
   white-space: normal;
-  overflow-x: scroll;
+  overflow-y: scroll;
 
 }
 
 .NewsDiv .Title{
   text-align: center;
-  font-size: 3vw;
+  font-size: 1.5vw;
   margin-top: 1vh;
   margin-bottom: 0px;
+
+  font-weight: bold;
+  color: #9E7373;
 }
 
 .NewsDiv .Author{
   font-size: 1.1vw;
   margin-top: 0px;
+  color: #a1a1a1;
+
+  font-style: italic;
 }
 
 .NewsDiv .Content{
   text-indent: 3vw;
   font-size: 1.5vw;
   padding: 1vh 1vw;
+
+  font-weight: normal;
 }
