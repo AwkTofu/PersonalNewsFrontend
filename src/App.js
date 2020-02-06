@@ -8,6 +8,8 @@ import Login from "./Navbar/Login.js";
 import Signup from "./Navbar/Signup.js"
 import { Route, Switch, withRouter } from 'react-router-dom';
 
+import {NYTimes_API_KEY} from "./api_key.js"
+
 function App(props) {
   useEffect(() => {
     let token = localStorage.getItem("token")
@@ -29,7 +31,13 @@ function App(props) {
       })
     }
 
-    
+    console.log("API Key: ", NYTimes_API_KEY)
+    fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=${NYTimes_API_KEY}`)
+    .then(r => r.json())
+    .then(respond => {
+      console.log(respond.response.docs);
+      
+    })
   })
 
   return (
