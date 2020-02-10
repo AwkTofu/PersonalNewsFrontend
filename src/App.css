@@ -1,7 +1,28 @@
+/* Color coding for the website
+
+Light Shades: #F3F5F2;
+  Use this color as the background for your dark-on-light designs, or the text color of an inverted design.
+Light Accend: #D0A67C;
+  Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette.
+Main Brand Color: #EE3F3F;
+  This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity.
+Dark Accent: #9E7373;
+  Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
+Dark Shades: #2B3130;
+  Use as the text color for dark-on-light designs, or as the background for inverted designs.
+
+
+
+*/
+
+
 /**************** General CSS *********************/
 body {
-  background-color: #27272B;
-  color: #F2F0EF;
+  background-color: #2B3130;
+  color: #F3F5F2;
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
 }
 
 .right {
@@ -12,10 +33,36 @@ body {
   float: left;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  background: #2B3130;
+  border-radius: 4px;
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D0A67C;
+  border-radius: 4px;
+}
+
 /**************** NavBar CSS *********************/
 .NavBar {
   display: flex;
-  background-color: #27272B;
+  background-color: #0f0f0f; /*0f0f0f*/
   align-items: center; /* Makes sure the item is in center of the div (in terms of height) */
   height: 5vh;
   width: 100vw;
@@ -24,45 +71,146 @@ body {
   position: -webkit-sticky; /* safari */
   position: sticky;
   top: 0;
-
-  border-style: solid;
 }
 
-.NavBar p{
-  color: #fff;
+.home_button{
+  color: #F3F5F2;
+  background-color: inherit;
   text-align: center;
-  margin: 0 auto;
+  float: left;
 
   font-size: 3vh;
+  margin-left: 1vw;
+}
+
+.login {
+  margin-right: 5vw;
+  font-size: 1.5vw;
+}
+
+.login:hover {
+  cursor: pointer;
+}
+
+.profile {
+  margin-right: 1vw;
+}
+
+.logout {
+  font-size: 1.3vw;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.dropdown {
+  margin: 0 auto;
+}
+
+.dropbtn {
+  font-size: 3vh;  
+  height: 5vh;
+  width: 30vh;
+  overflow: hidden;
+  white-space: nowrap;
+  border: none;
+  color: inherit;
+  outline: none;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2B3130;
+  width: 30vh;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content-element {
+  float: none;
+  color: inherit;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 2vh;
+  margin: 0 auto;
+}
+
+.dropdown-content-element:hover {
+  background-color: #D0A67C;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 /**************** Main Page CSS *********************/
 .MainPage {
-  height: 100vh;
+  height: 104vh;
   width: 100vw;
 }
 
+.divTitleText {
+  margin-bottom: 0;
+}
 
+.getMoreButton {
+  background-color: #F3F5F2;
+  margin: auto;
+  width: 6em;
+  padding: 0.2em;
+  text-align: center;
+  color: #2B3130;
+
+  border-style: solid;
+  border-color: #2B3130;
+  border-radius: 1rem;
+  border-width: 0.1rem;
+}
+
+.getMoreButton:hover {
+  cursor: pointer;
+}
+
+.loadingButton {
+  background-color: #858585;
+}
+.loadingButton:hover {
+  cursor: progress;
+}
 /**************** Source Div CSS *********************/
 .SourceDiv {
-  border-style: solid;
-  border-color: green;
-
   /*For Side Scrolling*/
   overflow: auto;
   white-space: nowrap;
 }
 
-.SourceDivTwo {
+.SourceDivInner {
   /*This is to prevent a bug with divs 
   appearing at different height*/
   display: inline-flex; 
 }
 /**************** News Div CSS *********************/
-.NewsDiv {
-  border-style: solid;
-  border-color: orange;
+.darkDiv {
+  background-color: #000;
+  color: #F3F5F2;
+}
 
+.dark {
+  background-color: #2B3130;
+}
+
+.divTitle {
+  text-align: center;
+}
+
+.NewsDiv {
+  border-radius: 1em;
 
   height: 40vh;
   width: 25vw;
@@ -72,24 +220,42 @@ body {
   /*For Side Scrolling*/
   display: inline-block;
   white-space: normal;
-  overflow-x: scroll;
-
+  overflow: hidden;
 }
 
 .NewsDiv .Title{
   text-align: center;
-  font-size: 3vw;
+  font-size: 1.5vw;
   margin-top: 1vh;
   margin-bottom: 0px;
+
+  font-weight: bold;
 }
 
 .NewsDiv .Author{
   font-size: 1.1vw;
   margin-top: 0px;
+  color: #a1a1a1;
+
+  font-style: italic;
 }
 
 .NewsDiv .Content{
-  text-indent: 3vw;
-  font-size: 1.5vw;
+  text-indent: 1vw;
+  font-size: 1.4vw;
   padding: 1vh 1vw;
+
+  font-weight: normal;
+  padding-right: 0;
+}
+
+
+/**************** Footer CSS *********************/
+.footer {
+  background-color: #0f0f0f;
+  font-size: 2vh;
+
+  height: 20vh;
+  padding-top: 1vh;
+  
 }
