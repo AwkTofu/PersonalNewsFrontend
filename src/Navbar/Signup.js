@@ -94,9 +94,24 @@ const Signup = (props) => {
 			})
 			.then(r => r.json())
 			.then(respond => {
-				props.setUserToken(respond.user, respond.token)
-				localStorage.setItem('token', respond.token)
-				props.history.push("/")
+				//If there's an issue, prop username issue
+				if (respond.errors)
+				{
+					let errors = {
+						...formData.errors,
+						username: respond.errors
+					}
+					setFormData({
+						...formData,
+						errors: errors,
+					})
+				}	
+				else //No errors, so we logged in and return to home page
+				{
+					props.setUserToken(respond.user, respond.token)
+					localStorage.setItem('token', respond.token)
+					props.history.push("/")
+				}
 			})
 		}
 	}

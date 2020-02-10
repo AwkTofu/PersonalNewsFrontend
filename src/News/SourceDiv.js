@@ -6,7 +6,7 @@ const CreateNewsDivs = (allNews, tempTitle = "N/A", theme) => {
 	{
 		//console.log(`${tempTitle}: `, allNews)
 		return allNews.map((news) => {
-			return <NewsDiv key={news.title} news={news} theme={`${theme}Div`}/>
+			return <NewsDiv key={news.publishDate} news={news} theme={`${theme}Div`}/>
 		})
 	}
 	else

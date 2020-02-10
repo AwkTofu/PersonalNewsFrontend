@@ -14,7 +14,7 @@ function App(props) {
   //Functions used to pre render details on the screen
   const getTokenFromLocalStoreage = () => {
     let token = localStorage.getItem("token")
-    console.log("token from local storage: ", token, props.login)
+    //console.log("token from local storage: ", token, props.login)
     if (token && !props.login)
     {    //If we are already logged in, no need to do another fetch
         fetch('http://localhost:3000/tokenlogin', {
@@ -33,37 +33,43 @@ function App(props) {
     }
   }
 
-  //Useeffect is called everytime it's loaded.
-  useEffect(() => {
-    getTokenFromLocalStoreage();
+  const loadDefaultNewsInfo = () => {
+    const defaultSearchValue = props.currentInterest;
+    let pageNumber = props.NYTimesPageCount;
 
-    console.log("API Key: ", NYTimes_API_KEY)
-    fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=${NYTimes_API_KEY}`)
+    fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${defaultSearchValue}&page=${pageNumber}&api-key=${NYTimes_API_KEY}`)
     .then(r => r.json())
     .then(respond => {
-      console.log(respond.response.docs);
+      //console.log(respond.response.docs);
       let articleFormatted = respond.response.docs.map((article) => {
-        let title = article.headline.main;
-        let author = article.byline.original;
-        let url = article.web_url;
-        let content = article.abstract;
+        const title = article.headline.main;
+        const author = article.byline.original;
+        const url = article.web_url;
+        const content = article.abstract;
+        const publishDate = article.pub_date;
 
         return {
           title: title,
           author: author,
           url: url,
           content: content,
+          publishDate: publishDate,
         };
       })
-      console.log("Formated", articleFormatted)
+      //console.log("Formated", articleFormatted)
       props.resetNYTimesContent(articleFormatted);
     })
+  }
+
+  //Useeffect is called everytime it's loaded.
+  useEffect(() => {
+    getTokenFromLocalStoreage();
+    loadDefaultNewsInfo();
   }, []) 
   //useEffect(()=>{},[]) If passing a second argument (array), 
   //React will run the callback after the first render and 
   //every time one of the elements in the array is changed. 
   //for example when placing useEffect(() => console.log('hello'), [someVar, someOtherVar]) - the callback will run after the first render and after any render that one of someVar or someOtherVar are changed.
-
   return (
     <div className="App">
       <Route path="/" component={NavBar} />
@@ -79,6 +85,9 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     login: state.login,
+    NYTimePageCount: state.NYTimesPageCount,
+    NYTimesPageCount: state.NYTimesPageCount,
+    currentInterest: state.currentInterest,
   }
 }
 

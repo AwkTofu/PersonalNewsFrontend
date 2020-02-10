@@ -25,3 +25,10 @@ export const resetNYTimesContent = (articles) => {
 		articles: articles,
 	}
 }
+
+export const nextNYTimesContent = (articles) => {
+	return {
+		type: "NYTimes_Next",
+		articles: articles,
+	}
+}
