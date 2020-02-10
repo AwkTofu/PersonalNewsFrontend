@@ -10,11 +10,16 @@ let handleClickLogout = (props) => {
 }
 
 let handleLoginClick = (history) => {
+
 	history.push("/login")
 }
 
 let handleHomeClick = (history) => {
 	history.push("/")
+}
+
+let changeCurrentInterest = (props, newInterest) => {
+	props.changeDefaultDiv(newInterest);
 }
 
 //************** Helper Functions **************
@@ -35,12 +40,41 @@ let login_signup = (props) => {
 	)
 }
 
+let dropdown_content_elements = (props) => {
+	//If there is no interest, default is New York Times
+	if(props.interests.length < 1) {
+		return (<p className="dropdown-content-element cursor_pointer"> New York Times </p>)
+	}
+
+	return props.interests.map((interest) => {
+		return (
+			<p className="dropdown-content-element cursor_pointer" 
+				key={`interest ${interest.id}`}
+				onClick={() => changeCurrentInterest(props, interest.interest)}> 
+				{interest.interest} 
+			</p>
+		)
+	})
+}
+
+
+	//************** JSX Return **************
 const NavBar = (props) => {
-	console.log("User:", props.user)
-	console.log("Token:", props.token)
+	console.log("User:", props.user, "interests:", props.currentInterest)
+	//console.log("Token:", props.token)
   return (
     <div className="NavBar">
-      <p className="home_button" onClick={() => handleHomeClick(props.history)}> Testing Nav Bar </p>
+      <div className="home_button cursor_pointer" onClick={() => handleHomeClick(props.history)}> 
+      	Personal News
+      </div>
+      <div className="dropdown">
+	    <button className="dropbtn">
+	    	{`${props.currentInterest} ⇩`}
+	    </button>
+	    <div className="dropdown-content">
+	      {dropdown_content_elements(props)}
+	    </div>
+	  </div> 
       {props.user 
       	? showProfile(props)
       	: login_signup(props)}
@@ -52,6 +86,8 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     token: state.token,
+    interests: state.interests,
+    currentInterest: state.currentInterest,
   }
 }
 

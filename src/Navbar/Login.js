@@ -37,10 +37,9 @@ const Login = (props) => {
 		})
 		.then(r => r.json())
 		.then(respond => {
-			console.log(respond);
 			if (respond.user)
 			{
-				props.setUserToken(respond.user, respond.token)
+				props.setUserToken(respond.user, respond.token, respond.interest)
 				localStorage.setItem('token', respond.token)
 				props.history.push("/")
 			}
@@ -98,8 +97,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => {
-	const settingUser = (user, token) => {
-		dispatch(setUserToken(user, token));
+	const settingUser = (user, token, interest) => {
+		dispatch(setUserToken(user, token, interest));
 	}
 	return {
 		setUserToken: settingUser
