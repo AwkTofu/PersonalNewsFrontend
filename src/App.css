@@ -97,7 +97,7 @@ body {
 }
 
 .logout {
-  font-size: 1.3vw;
+  font-size: 1.0vw;
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
@@ -147,6 +147,11 @@ body {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.user_name {
+  color: #D0A67C;
+  cursor: pointer;
 }
 
 /**************** Main Page CSS *********************/

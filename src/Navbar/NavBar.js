@@ -6,12 +6,10 @@ import {connect} from 'react-redux';
 let handleClickLogout = (props) => {
 	props.logout()
 	localStorage.removeItem("token");
-	console.log("user logged out")
 }
 
-let handleLoginClick = (history) => {
-
-	history.push("/login")
+let handleChangePageClilck = (history, url) => {
+	history.push(url)
 }
 
 let handleHomeClick = (history) => {
@@ -20,13 +18,23 @@ let handleHomeClick = (history) => {
 
 let changeCurrentInterest = (props, newInterest) => {
 	props.changeDefaultDiv(newInterest);
+	
+	//If you aren't at the home page, and you click an interest
+	//You get send to the home page with your search result
+	if (props.history.location.pathname !== "/")
+	{
+		props.history.push("/")
+	}
 }
 
 //************** Helper Functions **************
 let showProfile = (props) => {
 	return (
 		<div className="profile">
-			Welcome, {props.user.name}
+			Welcome, 
+			<span className="user_name" onClick={() => handleChangePageClilck(props.history, "profile")}>
+				{" " + props.user.name} 
+			</span>
 			<h4 className="logout" onClick={() => handleClickLogout(props)}> logout </h4>
 		</div>
 	)
@@ -34,7 +42,7 @@ let showProfile = (props) => {
 
 let login_signup = (props) => {
 	return (
-		<div className="login right" onClick={() => handleLoginClick(props.history)}>
+		<div className="login right" onClick={() => handleChangePageClilck(props.history, "login")}>
 			SIGN IN
 		</div>
 	)
@@ -60,7 +68,7 @@ let dropdown_content_elements = (props) => {
 
 	//************** JSX Return **************
 const NavBar = (props) => {
-	console.log("User:", props.user, "interests:", props.currentInterest)
+	//console.log("User:", props.user, "interests:", props.currentInterest)
 	//console.log("Token:", props.token)
   return (
     <div className="NavBar">

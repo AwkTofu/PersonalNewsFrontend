@@ -4,6 +4,7 @@ import {setUserToken, resetNYTimesContent} from './Redux/actions.js';
 import './App.css';
 import NavBar from "./Navbar/NavBar.js";
 import MainPage from "./News/MainPage.js";
+import ProfilePage from './Profile/ProfilePage.js'
 import Login from "./Navbar/Login.js";
 import Signup from "./Navbar/Signup.js"
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -47,7 +48,6 @@ function App(props) {
 
   const loadDefaultNewsInfo = (interest) => {
     const defaultSearchValue = interest;
-    let pageNumber = props.NYTimesPageCount;
 
     fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${defaultSearchValue}&page=${0}&api-key=${NYTimes_API_KEY}`)
     .then(r => r.json())
@@ -81,11 +81,12 @@ function App(props) {
   //If the user login/logout, the default information should reset
   if (props.changeDefaultDiv)
   {
-    console.log("Changed default Div", props.currentInterest)
+    //console.log("Changed default Div", props.currentInterest)
     loadDefaultNewsInfo(props.currentInterest);
   }
 
-  console.log("Main Menu INterest", props.currentInterest, props.NYTimesPageCount)
+  //console.log("Main Menu INterest", props.currentInterest, props.NYTimesPageCount)
+
   //useEffect(()=>{},[]) If passing a second argument (array), 
   //React will run the callback after the first render and 
   //every time one of the elements in the array is changed. 
@@ -97,6 +98,7 @@ function App(props) {
         <Route path="/" exact component={MainPage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/profile" component={ProfilePage} />
       </Switch>
     </div>
   );
