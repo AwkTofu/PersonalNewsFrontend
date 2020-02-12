@@ -4,6 +4,7 @@ import {setUserToken, resetNYTimesContent} from './Redux/actions.js';
 import './App.css';
 import NavBar from "./Navbar/NavBar.js";
 import MainPage from "./News/MainPage.js";
+import ProfilePage from './Profile/ProfilePage.js'
 import Login from "./Navbar/Login.js";
 import Signup from "./Navbar/Signup.js"
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -97,6 +98,7 @@ function App(props) {
         <Route path="/" exact component={MainPage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/profile" component={ProfilePage} />
       </Switch>
     </div>
   );

@@ -9,9 +9,8 @@ let handleClickLogout = (props) => {
 	console.log("user logged out")
 }
 
-let handleLoginClick = (history) => {
-
-	history.push("/login")
+let handleChangePageClilck = (history, url) => {
+	history.push(url)
 }
 
 let handleHomeClick = (history) => {
@@ -26,7 +25,10 @@ let changeCurrentInterest = (props, newInterest) => {
 let showProfile = (props) => {
 	return (
 		<div className="profile">
-			Welcome, {props.user.name}
+			Welcome, 
+			<span className="user_name" onClick={() => handleChangePageClilck(props.history, "profile")}>
+				{" " + props.user.name} 
+			</span>
 			<h4 className="logout" onClick={() => handleClickLogout(props)}> logout </h4>
 		</div>
 	)
@@ -34,7 +36,7 @@ let showProfile = (props) => {
 
 let login_signup = (props) => {
 	return (
-		<div className="login right" onClick={() => handleLoginClick(props.history)}>
+		<div className="login right" onClick={() => handleChangePageClilck(props.history, "login")}>
 			SIGN IN
 		</div>
 	)
