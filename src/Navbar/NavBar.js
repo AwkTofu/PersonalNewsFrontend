@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 let handleClickLogout = (props) => {
 	props.logout()
 	localStorage.removeItem("token");
-	console.log("user logged out")
 }
 
 let handleChangePageClilck = (history, url) => {
@@ -19,6 +18,13 @@ let handleHomeClick = (history) => {
 
 let changeCurrentInterest = (props, newInterest) => {
 	props.changeDefaultDiv(newInterest);
+	
+	//If you aren't at the home page, and you click an interest
+	//You get send to the home page with your search result
+	if (props.history.location.pathname !== "/")
+	{
+		props.history.push("/")
+	}
 }
 
 //************** Helper Functions **************
@@ -62,7 +68,7 @@ let dropdown_content_elements = (props) => {
 
 	//************** JSX Return **************
 const NavBar = (props) => {
-	console.log("User:", props.user, "interests:", props.currentInterest)
+	//console.log("User:", props.user, "interests:", props.currentInterest)
 	//console.log("Token:", props.token)
   return (
     <div className="NavBar">

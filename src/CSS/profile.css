@@ -1,0 +1,50 @@
+.ProfilePage {
+	text-align: center;
+}
+
+
+
+/**************** Add New Interest *********************/
+.newInterest {
+	border-style: solid;
+	border-color: #f00;
+	border-width: 0.1rem;
+
+	margin-bottom: 2vh;
+}
+
+.new_interest_input {
+	outline: none;
+}
+
+.add_interest_button {
+	background-color: #F3F5F2;
+	margin: auto;
+	text-align: center;
+	color: #2B3130;
+	outline: none;
+
+
+	border-style: solid;
+	border-color: #2B3130;
+	border-radius: 1rem;
+	border-width: 0.1rem;
+}
+
+.add_interest_button:hover {
+	cursor: pointer;
+}
+
+.disable_interest_button {
+  background-color: #858585;
+}
+.disable_interest_button:hover {
+  cursor: progress;
+}
+
+/**************** Interest List *********************/
+.InterestList {
+	border-style: solid;
+	border-color: #0f0;
+	border-width: 0.1rem;
+}

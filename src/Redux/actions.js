@@ -35,3 +35,17 @@ export const nextNYTimesContent = (articles) => {
 		articles: articles,
 	}
 }
+
+export const addInterest = (newInterest) => {
+	return {
+		type: "Add_Interest",
+		interest: newInterest,
+	}
+}
+
+export const deleteInterest = (deletedInterestID) => {
+	return {
+		type: "Delete_Interest",
+		interest_id: deletedInterestID,
+	}
+}
