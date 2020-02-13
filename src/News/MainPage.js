@@ -76,7 +76,7 @@ const MainPage = (props) => {
         </p>
       </div>
       <SourceDiv srcName="NYTimes" news={props.NYTimes} theme="dark"/>
-      <h1 className="divTitle">  Twitter (Maybe)</h1>
+      <h1 className="divTitle">  Twitter (Future DLC)</h1>
       <SourceDiv srcName="Twitter" news={props.Twitter} theme="dark"/>
       <Footer />
     </div>
