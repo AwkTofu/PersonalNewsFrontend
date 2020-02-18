@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import {SearchInterest} from '../Redux/actions.js';
 
 const SearchBar = (props) => {
     let[searchBarState, setSearchBarState] = useState({
         searchbar: "",
     })
 
+    //********** JSX Return **********
     return (
         <div className="SearchBar">
             <p>For future,  Search bar Here </p>

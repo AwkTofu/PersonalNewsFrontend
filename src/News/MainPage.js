@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {nextNYTimesContent, resetNYTimesContent} from '../Redux/actions.js';
 import SourceDiv from './SourceDiv.js';
 import Footer from "../footer.js";
-import SearchBar from './SearchBar.js';
 import {NYTimes_API_KEY} from "../api_key.js";
 
 const MainPage = (props) => {
@@ -68,7 +67,6 @@ const MainPage = (props) => {
   //********** JSX Return **********
   return (
     <div className="MainPage">
-      <SearchBar />
       <div className="divTitle">
         <h1 className="divTitleText"> New York Times </h1>
         <p className={`getMoreButton ${props.afterDefaultFetch ? mainPageState.allowNYTimesFetch ? null : "loadingButton" : "loadingButton"}`}
