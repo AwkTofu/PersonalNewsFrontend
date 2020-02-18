@@ -49,3 +49,10 @@ export const deleteInterest = (deletedInterestID) => {
 		interest_id: deletedInterestID,
 	}
 }
+
+export const SearchInterest = (interest) => {
+	return {
+		type: "Search_Interest",
+		currentInterest: interest,
+	}
+}

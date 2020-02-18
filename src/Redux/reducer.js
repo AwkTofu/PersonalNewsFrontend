@@ -1,4 +1,4 @@
-const defaultCurrentInterest = "New York Times";
+const defaultCurrentInterest = "Government";
 
 const noInfo = (API_Name = "noName") => { 
 	return [{
@@ -92,13 +92,18 @@ const reducer = (existingState = initialState, action) => {
 			//Create a copy of the interest
 			let temp_interest =  [...existingState.interests]
 			//Find the Index of the item we want to remove
-			const delete_interest_index = temp_interest.findIndex((interest) => interest.id == action.interest_id);
+			const delete_interest_index = temp_interest.findIndex((interest) => interest.id === action.interest_id);
 			//Remove the item given the index
 			temp_interest.splice(delete_interest_index, 1);
 
 			return {
 				...existingState,
 				interests: temp_interest,
+			}
+		case "Search_Interest":
+			return {
+				...existingState,
+				currentInterest: action.currentInterest,
 			}
 		default:
 			return existingState
