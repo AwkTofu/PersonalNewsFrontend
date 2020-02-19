@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {nextNYTimesContent, resetNYTimesContent} from '../Redux/actions.js';
-import SourceDiv from './SourceDiv.js'
+import SourceDiv from './SourceDiv.js';
 import Footer from "../footer.js";
-
-import {NYTimes_API_KEY} from "../api_key.js"
+import {NYTimes_API_KEY} from "../api_key.js";
 
 const MainPage = (props) => {
   let [mainPageState, setMainPageState] = useState({
@@ -69,14 +68,14 @@ const MainPage = (props) => {
   return (
     <div className="MainPage">
       <div className="divTitle">
-        <h1 className="divTitleText"> New York Time </h1>
+        <h1 className="divTitleText"> New York Times </h1>
         <p className={`getMoreButton ${props.afterDefaultFetch ? mainPageState.allowNYTimesFetch ? null : "loadingButton" : "loadingButton"}`}
           onClick={() => handleClickGetMoreNews("NYTimes")}> 
           {props.afterDefaultFetch ? mainPageState.allowNYTimesFetch ? "Get More" : "Loading" : "Loading"}
         </p>
       </div>
       <SourceDiv srcName="NYTimes" news={props.NYTimes} theme="dark"/>
-      <h1 className="divTitle">  Twitter (Maybe)</h1>
+      <h1 className="divTitle">  Twitter (Future DLC)</h1>
       <SourceDiv srcName="Twitter" news={props.Twitter} theme="dark"/>
       <Footer />
     </div>

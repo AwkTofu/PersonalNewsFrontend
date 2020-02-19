@@ -126,7 +126,6 @@ const mapDispatchToProps = dispatch => {
     dispatch(addInterest(interest))
   }
   const DeleteSelectedInterest = (interest_id) => {
-  	console.log("Dispatch,", interest_id)
   	dispatch(deleteInterest(interest_id))
   }
 

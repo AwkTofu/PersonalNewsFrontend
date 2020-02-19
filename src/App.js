@@ -8,7 +8,7 @@ import ProfilePage from './Profile/ProfilePage.js'
 import Login from "./Navbar/Login.js";
 import Signup from "./Navbar/Signup.js"
 import { Route, Switch, withRouter } from 'react-router-dom';
-
+import SearchBar from './SearchBar.js';
 import {NYTimes_API_KEY} from "./api_key.js"
 
 function App(props) {
@@ -95,6 +95,7 @@ function App(props) {
     <div className="App">
       <Route path="/" render={(props) => <NavBar changeDefaultDiv={loadDefaultNewsInfo} history={props.history}/>} />
       <Switch>
+        <Route path="/" exact render={(props) => <SearchBar changeDefaultDiv={loadDefaultNewsInfo}/>} />
         <Route path="/" exact component={MainPage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
