@@ -100,6 +100,11 @@ const reducer = (existingState = initialState, action) => {
 				...existingState,
 				interests: temp_interest,
 			}
+		case "Search_Interest":
+			return {
+				...existingState,
+				currentInterest: action.currentInterest,
+			}
 		default:
 			return existingState
 	}
