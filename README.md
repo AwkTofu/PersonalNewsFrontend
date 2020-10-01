@@ -1,3 +1,6 @@
+Personal News Frontend
+This app obtains news articles from different media API based on keywords you decide.
+
 ## !Backend is not Hosted anywhere yet!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
